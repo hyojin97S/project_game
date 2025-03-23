@@ -23,6 +23,10 @@ const musicFiles = {
   song6: {
     file: "mp3/Ditto-NewJeans.mp3", 
     title: "Ditto"
+  },
+  song7: {
+    file: "mp3/Jeans - BSS.mp3", 
+    title: "청바지"
   }
 };
 
