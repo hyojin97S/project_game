@@ -1,0 +1,238 @@
+/* 기본 스타일 */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* 부드러운 그라데이션 배경 */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* 중앙 정렬 */
+}
+
+.game-container {
+  background-color: rgba(0, 0, 0, 0.8); /* 다크 테마 배경 */
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 34px;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.game-description {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 14px 28px;
+  font-size: 20px;
+  margin: 12px;
+  cursor: pointer;
+  background-color: #ff7e5f;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #feb47b;
+  transform: scale(1.05);
+}
+
+/* 게임 내용 영역 */
+.game-content {
+  display: none;
+}
+
+.quiz-container {
+  margin-top: 20px;
+}
+
+#quiz {
+  display: none;
+}
+#quiz p {
+  color: #fff;
+}
+
+input {
+  padding: 12px;
+  font-size: 18px;
+  margin: 10px;
+  width: 80%;
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; 
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-sizing: border-box; 
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.result-message {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: white;
+}
+
+.result-message.green {
+  color: #4CAF50;
+}
+
+.result-message.red {
+  color: #f44336;
+}
+
+ol {
+  list-style-type: none;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 0;
+  margin: 0; 
+  text-align: center;
+  margin-bottom: 20px;
+}
+ol li {
+  padding: 10px;
+  text-align: center; 
+}
+
+#musicButton {
+  cursor: pointer; 
+  width: 100px; 
+  height: 100px;
+  margin: 0 auto;
+}
+
+/* 정답 화면 스타일 */
+.correct-answer-screen {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.correct-answer-screen h2 {
+  font-size: 2em;
+  color: green;
+}
+
+#correct-answer-message {
+  color: #fff;
+}
+
+.correct-answer-screen button {
+  margin-top: 20px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.4em; /* 모바일에서 제목 크기 조정 */
+  }
+
+  .game-container {
+    padding: 20px; /* 모바일 화면에서 패딩을 줄임 */
+    width: 90%;
+    max-width: 480px; /* 작은 화면에서는 최대 너비를 줄임 */
+  }
+
+  .game-description {
+    font-size: 1.0em; /* 모바일에서 텍스트 크기 조정 */
+  }
+
+  input {
+    width: 90%; /* 입력란 너비를 100%로 설정 */
+  }
+
+  button {
+    width: 90%; /* 버튼을 가로로 확장 */
+    font-size: 16px; /* 버튼 텍스트 크기 줄이기 */
+  }
+
+  #quiz p {
+    font-size: 0.9em; /* 퀴즈 텍스트 크기 조정 */
+  }
+
+  .submit-button {
+    font-size: 16px; /* 제출 버튼의 폰트 크기 조정 */
+  }
+
+  .result-message {
+    font-size: 1.3em; /* 결과 메시지 크기 조정 */
+  }
+
+  #musicButton {
+    width: 80px; /* 모바일에서 음악 버튼 크기 줄이기 */
+    height: 80px;
+  }
+
+  .correct-answer-screen h2 {
+    font-size: 1.8em; /* 정답 화면에서 텍스트 크기 조정 */
+  }
+
+  ol {
+    width: 85%;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  ol li {
+    font-size: 0.9em;
+  }
+}
+
+/* 더 작은 화면 (모바일 포트레이트) */
+@media (max-width: 480px) {
+  .game-container {
+    padding: 15px;
+    width: 95%;
+  }
+
+  h1 {
+    outline: 1px solid yellow;
+    font-size: 1.6em; /* 더 작은 화면에서 제목 크기 줄임 */
+  }
+
+  input {
+    font-size: 16px; /* 입력란 폰트 크기 줄이기 */
+  }
+
+  .submit-button {
+    font-size: 14px; /* 제출 버튼 폰트 크기 줄이기 */
+  }
+
+  .result-message {
+    font-size: 1.2em; /* 결과 메시지 크기 줄이기 */
+  }
+
+  #musicButton {
+    width: 70px;
+    height: 70px;
+  }
+}
