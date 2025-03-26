@@ -241,6 +241,39 @@ function showGameDescription() {
   document.getElementById('start-game-btn').style.display = 'none';  
 }
 
+// 음표 효과
+let noteCount = 0;  // 음표의 생성 횟수를 추적합니다.
+
+// 음표 물결처럼 퍼지는 함수 (왼쪽과 오른쪽에서만 생성)
+function createRippleNote() {
+  const note = document.createElement("div");
+  const isLeft = Math.random() < 0.5;  // 음표가 왼쪽 또는 오른쪽에서 생성될지 결정 (50% 확률)
+
+  note.classList.add("note", isLeft ? "ripple-note-left" : "ripple-note-right");
+
+  // 음표 텍스트 또는 음표 기호
+  const notesArray = ['🎵', '🎶', '♪', '♫'];
+  note.textContent = notesArray[Math.floor(Math.random() * notesArray.length)]; // 랜덤한 음표 기호 선택
+
+  // 음표 위치 설정 (화면 상단에서 시작)
+  note.style.top = `${Math.random() * -50}vh`;   // 화면의 상단에서 시작 (밑으로 떨어짐)
+  note.style.left = isLeft ? `${Math.random() * 30}vw` : `${70 + Math.random() * 30}vw`;  // 왼쪽 또는 오른쪽에서 시작
+
+  // 음표 div를 body에 추가
+  document.body.appendChild(note);
+  noteCount++; // 생성된 음표 수를 증가시킴
+
+  // 음표가 사라지고 나서 DOM에서 제거하여 메모리 관리
+  setTimeout(() => {
+    note.remove();
+    noteCount--;  // 음표가 사라지면 음표 갯수 감소
+  }, 3000);  // 애니메이션이 끝난 후 음표 삭제 (3초 후)
+}
+
+// 음표를 주기적으로 생성
+setInterval(createRippleNote, 1000); // 1초마다 한 개의 음표 생성
+
+
 // 게임 시작 버튼 클릭 시 호출되는 함수
 let totalQuestions = Object.keys(musicFiles).length; // 전체 문제 수
 let remainingQuestions = totalQuestions; // 남은 문제 수 초기화
@@ -350,7 +383,8 @@ function checkAnswer() {
   } else {
     // 오답 처리
     document.getElementById("result").innerText = "틀렸습니다. 다시 시도해 주세요.";
-    document.getElementById("result").style.color = "red";
+    document.getElementById("result").style.color = "#E74C3C";
+    document.getElementById("result").style.textShadow = "1px 1px 2px rgba(0, 0, 0, 0.2)";
   }
 
   // 퀴즈 숨기지 않고 계속 표시

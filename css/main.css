@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  background: linear-gradient(to right, #f7f1c1, #ffd4e5);
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -8,28 +8,30 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center; 
+  overflow: hidden;
 }
 
 .game-container {
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(216, 191, 216, 0.6); 
   padding: 50px;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 700px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 h1 {
   font-size: 34px;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  color: #4B4B4B;
+  text-shadow: 3px 3px 10px rgba(255, 255, 255, 1);
   margin-bottom: 20px;
 }
 
 .game-description {
   font-size: 20px;
-  color: white;
+  color: #4B4B4B;
   margin-bottom: 30px;
 }
 
@@ -38,15 +40,16 @@ button {
   font-size: 20px;
   margin: 12px;
   cursor: pointer;
-  background-color: #ff7e5f;
-  color: white;
+  background-color:pink;
+  color: #fff ;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   border: none;
   border-radius: 12px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-  background-color: #feb47b;
+  background-color: #FFB6C1 ;
   transform: scale(1.05);
 }
 
@@ -63,7 +66,7 @@ button:hover {
   display: none;
 }
 #quiz p {
-  color: #fff;
+  color: #4B4B4B;
 }
 
 input {
@@ -79,7 +82,7 @@ input {
 }
 
 .submit-button {
-  background-color: #4CAF50;
+  background-color: #48C9B0;
   color: white;
   border: none;
   padding: 14px 28px;
@@ -91,12 +94,12 @@ input {
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #16A085;
   transform: scale(1.05);
 }
 
 .hint-button {
-  background-color: #FFC107;
+  background-color: #F4C542;
   color: white;
   border: none;
   padding: 14px 28px;
@@ -129,7 +132,7 @@ input {
 /* 게임 설명 */
 ol {
   list-style-type: none;
-  border: 1px solid #fff;
+  border: 1px solid #4B4B4B;
   border-radius: 5px;
   padding: 0;
   margin: 0; 
@@ -161,11 +164,12 @@ ol li {
 
 .correct-answer-screen h2 {
   font-size: 2em;
-  color: green;
+  color: #28A745;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 #correct-answer-message {
-  color: #fff;
+  color: #4B4B4B;
 }
 
 .correct-answer-screen button {
@@ -261,6 +265,66 @@ ol li {
   z-index: 9999;
 }
 
+ /* 음표 스타일 */
+ .note {
+  position: absolute;
+  font-size: 30px;  /* 음표 크기 */
+  color: rgba(0, 0, 0, 0.8);  /* 음표 색상 */
+  opacity: 0.8;
+  user-select: none;
+  z-index: 10; /* 음표가 게임 컨테이너 위로 떨어지도록 설정 */
+}
+
+/* 물결처럼 퍼지는 애니메이션 */
+@keyframes ripple {
+  0% {
+    transform: scale(0) translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5) translate(-50px, 50px); /* 왼쪽에서 퍼짐 */
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.5) translate(-100px, 100px); /* 왼쪽에서 더 퍼짐 */
+    opacity: 0;
+  }
+}
+
+@keyframes ripple-right {
+  0% {
+    transform: scale(0) translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5) translate(50px, 50px); /* 오른쪽에서 퍼짐 */
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.5) translate(100px, 100px); /* 오른쪽에서 더 퍼짐 */
+    opacity: 0;
+  }
+}
+
+/* 음표의 퍼지는 애니메이션을 설정 (왼쪽) */
+.ripple-note-left {
+  animation: ripple 3s ease-out forwards, fall 3s ease-out infinite;
+}
+
+/* 음표의 퍼지는 애니메이션을 설정 (오른쪽) */
+.ripple-note-right {
+  animation: ripple-right 3s ease-out forwards, fall 3s ease-out infinite;
+}
+
+/* 음표의 떨어지는 효과 (위에서 아래로) */
+@keyframes fall {
+  0% {
+    top: -50px; /* 음표가 화면 밖에서 시작 */
+  }
+  100% {
+    top: 80vh; /* 화면 하단까지 떨어짐 */
+  }
+}
 
 /* 반응형 */
 @media (max-width: 768px) {
