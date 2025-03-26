@@ -11,27 +11,41 @@
   <div class="game-container">
     <h1>🎶음악을 듣고 어떤 곡인지 맞추기🎶</h1>
     <p id="game-description" class="game-description">음악 퀴즈 게임에 오신 것을 환영합니다!</p>
-
-    <button id="game-explanation-btn" class="play-button" onclick="showGameDescription()">게임 설명</button>
+    <button id="game-explanation-btn" class="play-button-game" onclick="showGameDescription()">게임 설명</button>
     <button id="start-game-btn" class="play-button" onclick="startGame()">시작</button>
-
+  
     <div id="game-content" class="game-content">
-        <div class="quiz-container">
-          <img src="./img/play.gif" alt="음악 듣기" onclick="playMusic()" id="musicButton">
-            <div id="quiz">
-                <p>🎧 이 음악의 제목은? 🎧 </p>
-                <input type="text" id="userAnswer" class="input-answer" placeholder="곡 제목을 입력하세요">
-                <button onclick="checkAnswer()" class="submit-button">확인</button>
-            </div>
-            <p id="result" class="result-message"></p>
+      <div id="remaining-problems" class="remaining-problems">
+        <p>남은 문제: <span id="remaining-count">0</span> 문제</p>
+      </div>
+  
+      <div class="quiz-container">
+        <img src="./img/play.gif" alt="음악 듣기" onclick="playMusic()" id="musicButton">
+        <div id="quiz">
+          <p>🎧 이 음악의 제목은? 🎧</p>
+          <input type="text" id="userAnswer" class="input-answer" placeholder="곡 제목을 입력하세요">
+          <button class="hint-button" onclick="showHint()">힌트</button>
+          <button onclick="checkAnswer()" class="submit-button">확인</button>
+          <p id="hint" style="display:none; font-weight: bold;"></p>
         </div>
+        <p id="result" class="result-message"></p>
+      </div>
+    </div>
+  
+    <div id="correct-answer-screen" class="correct-answer-screen" style="display: none;">
+      <h2>🎉 정답입니다! 🎉</h2>
+      <p id="correct-answer-message">축하합니다! 정답을 맞추셨습니다.</p>
+      <button id="next-song-btn" class="play-button" onclick="nextSong()">NEXT</button>
     </div>
 
-<div id="correct-answer-screen" class="correct-answer-screen" style="display: none;">
-  <h2>🎉 정답입니다! 🎉</h2>
-  <p id="correct-answer-message">축하합니다! 정답을 맞추셨습니다.</p>
-  <button id="next-song-btn" class="play-button" onclick="nextSong()">NEXT</button>
-</div>
+    <div id="game-over-message" class="game-over-message" style="display: none;">
+      <h2>🎉 축하합니다! 모든 퀴즈를 완료했어요! 🎉</h2>
+      <p>이제 음악 마스터가 되셨군요! 🎶</p>
+      <p>다음에 또 만나요! 👋</p>
+    </div>    
+    
+    <div id="confetti-container"></div>
+  
   </div>
 </body>
 </html>
