@@ -247,6 +247,11 @@ let remainingQuestions = totalQuestions; // 남은 문제 수 초기화
 let usedSongs = []; // 이미 나온 곡을 저장할 배열
 
 function startGame() {
+  const bgm = document.getElementById('bgm');
+  bgm.pause();  // 음악 멈추기
+  bgm.currentTime = 0;  // 음악을 처음으로 되돌리기 (선택 사항)
+  bgm.style.display = 'none';  // 음악 요소 숨기기
+
   // 게임 시작 후 기존 화면 처리
   document.getElementById('game-description').style.display = 'none'; 
   document.getElementById('game-content').style.display = 'block'; 
