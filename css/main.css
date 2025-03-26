@@ -266,7 +266,7 @@ ol li {
 }
 
  /* 음표 스타일 */
- .note {
+  .note {
   position: absolute;
   font-size: 30px;  /* 음표 크기 */
   color: rgba(0, 0, 0, 0.8);  /* 음표 색상 */
@@ -325,6 +325,7 @@ ol li {
     top: 80vh; /* 화면 하단까지 떨어짐 */
   }
 }
+
 
 /* 반응형 */
 @media (max-width: 768px) {
