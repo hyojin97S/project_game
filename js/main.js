@@ -106,9 +106,9 @@ const musicFiles = {
     hint: "✨,🙏,🔮"
   },
   song22: {
-    file: "mp3/Poppy-STAYC.mp3", 
-    title: "Poppy",
-    hint: "😍💥⚡"
+    file: "mp3/STAYC-TeddyBear.mp3", 
+    title: "Teddy Bear",
+    hint: "🐻"
   },
   song23: {
     file: "mp3/QWER-MyNameIsClear.mp3", 
@@ -178,7 +178,7 @@ const musicFiles = {
   song36: {
     file: "mp3/DAY6-Happy.mp3", 
     title: "Happy",
-    hint: "😊"
+    hint: "🌞🩸"
   },
   song37: {
     file: "mp3/LadiesCode-I'mFineThankYou.mp3", 
@@ -199,6 +199,56 @@ const musicFiles = {
     file: "mp3/N.Flying-RooftopRoom.mp3", 
     title: "옥탑방",
     hint: "🏠"
+  },
+  song41: {
+    file: "mp3/SEVENTEEN-GodOfMusic.mp3", 
+    title: "음악의 신",
+    hint: "🎶🎵 🧝‍♂️"
+  },
+  song42: {
+    file: "mp3/SongPilGeun-ToLady.mp3", 
+    title: "숙녀에게",
+    hint: "🙍‍♀️"
+  },
+  song43: {
+    file: "mp3/BEWAVE-shine.mp3", 
+    title: "shine",
+    hint: "✨,🌟"
+  },
+  song44: {
+    file: "mp3/MIRAE-SnowPrince.mp3", 
+    title: "Snow Prince",
+    hint: "❄ 🤴"
+  },
+  song45: {
+    file: "mp3/Espa-dreamsComeTrue.mp3", 
+    title: "dreams Come True",
+    hint: "S.E.S의 명곡, 재해석한 리메이크"
+  },
+  song46: {
+    file: "mp3/NCTdream-Candy.mp3", 
+    title: "Candy",
+    hint: "🍭"
+  },
+  song47: {
+    file: "mp3/YEONJUN-GGUM.mp3", 
+    title: "GGUM",
+    hint: "껌 질겅 껌 질겅"
+  },
+  song48: {
+    file: "mp3/KATSEYE-Touch.mp3", 
+    title: "Touch",
+    hint: "만지다"
+  },
+  song49: {
+    file: "mp3/ChoiYena-SquareSquare.mp3", 
+    title: "네모네모",
+    hint: "⬜⬜"
+  },
+  song50: {
+    file: "mp3/NewJeans-HypeBoy.mp3", 
+    title: "Hype Boy",
+    hint: "홍대로 가려면 어떻게 가야돼요?"
   }
 };
 
@@ -454,4 +504,9 @@ function showGameOverScreen() {
 
   // 폭죽 효과 실행
   startConfettiEffect();
+
+    // 게임 종료 배경 음악 재생
+    var bgmEnd = document.getElementById('bgm-end');
+    bgmEnd.style.display = 'block';  // bgm-end 요소를 화면에 표시
+    bgmEnd.play();  // 게임 종료 시 bgm-end.mp3 재생
 }

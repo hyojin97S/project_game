@@ -357,7 +357,12 @@ ol li {
   }
 
   .submit-button {
-    font-size: 16px; 
+    font-size: 16px;
+    width: 100px;
+  }
+  .hint-button {
+    font-size: 16px;
+    width: 100px;
   }
 
   .result-message {

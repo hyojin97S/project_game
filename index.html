@@ -15,8 +15,14 @@
       <button id="game-explanation-btn" class="play-button-game" onclick="showGameDescription()">게임 설명</button>
       <button id="start-game-btn" class="play-button" onclick="startGame()">시작</button>
       
+      <!-- 페이지로드 -->
       <audio id="bgm" autoplay>
         <source src="./mp3/bgm-game.mp3" type="audio/mp3">
+      </audio>
+
+      <!-- 게임 종료 -->
+      <audio id="bgm-end" style="display:none;">
+        <source src="./mp3/ending-game.mp3" type="audio/mp3">
       </audio>
     </div>
     
